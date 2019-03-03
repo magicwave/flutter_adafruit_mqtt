@@ -5,8 +5,8 @@ The goal of this project is to understand how to "do this in flutter":
 - subscribe and publish to AdafruitIO
 - log events similar/closest to the rich logging I enjoy in Python
 ## Non Goal
-__There is no error checking.__  My intent was to learn more like a conversation in which we learn how something works, but we stop short of studying so completely that we address all the "what ifs."
-## Thanks to Those that Went Before  
+__There is no error checking.__  My intent was to learn how something works, more like a conversation, but stopping short of studying so completely that all the "what ifs" are addressed.
+## Thanks to Those Who Went Before  
 - shamblett for his [mqtt_client dart package](https://pub.dartlang.org/packages/mqtt_client) and [mqtt_client GitHub](https://github.com/shamblett/mqtt_client).  Thank you for your well documented and so far robust code.  Thank you for being very responsive and supportive answer questions that I had.  Even when the questions clearly showed how clueless I am.  
 - abachman (Adam B.) for his clear answers to questions on the [Adafruit.io forum](https://forums.adafruit.com/viewforum.php?f=56).  Thank you for the persistance and final nudge to help me realize the client id is not the username...um...sure obvious to the rest of you!
 - Adafruit for not only Adafruit.IO but the quality customer and community experience.  You inspire me to ask myself _"How hard can it be?"_ and answer with _"As hard as I make it."_ And most times I figure it out.
@@ -14,10 +14,10 @@ __There is no error checking.__  My intent was to learn more like a conversation
 # Code Highlights
 ## Connecting to Adafruit IO
 ### The Info You Need
-I'm assuming you have familiarity with Adafruit IO.  You've subscribed and published to a feed.  There is three pieces of information you need to have on hand when connecting to Adafruit.io:
-- the broker name.  This is ```io.adafruit.com```
-- your username.  This is your adafruit.com username.
-- your AIO key.  This is a secret key generated for your Adafruit IO transactions.  You find this within the Adafruit IO web interface.
+I'm assuming you have familiarity with Adafruit IO, and that you've subscribed and published to a feed.  There are three pieces of information you need to have on hand when connecting to Adafruit.io:
+- broker name - This is ```io.adafruit.com```
+- username    - This is your adafruit.com username.
+- AIO key     - This is a secret key generated for your Adafruit IO transactions.  You find this within the Adafruit IO web interface: https://io.adafruit.com/{your_account}/feeds > View AIO Key.
 
 I put this info into a config/private.json file.  Here's a screenshot of where the file goes within the project:  
 ![alt text](https://github.com/BitKnitting/flutter_adafruit_mqtt/blob/master/imgs/Navigation_screenshot.png "Navigation Screen")
@@ -30,7 +30,7 @@ The contents of the file looks like:
     "key": "your AIO key"
 }
 ```
-The helper function `_getBrokerAndKey()` read the file and turn it into something akin to a dictionary in Python:
+The helper function `_getBrokerAndKey()` reads the file and turns it into something akin to a dictionary in Python:
 
 ```
   Future<Map> _getBrokerAndKey() async {
